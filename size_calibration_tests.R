@@ -92,5 +92,9 @@ for (i in 1:MC) {
   
 }
 
-
-
+Table <- rbind(apply(Table_500, 2, mean),
+               apply(Table_1000, 2, mean),
+               apply(Table_2500, 2, mean))
+row.names(Table) <- c(500, 1000, 2500)
+colnames(Table) <- c("UC", "CC", "DQ", "VDQ", "ES", "CoC", "ESR1", "ESR2", "ESR3", "ESR3_1")
+xtable::xtable(Table, digits = 3)
